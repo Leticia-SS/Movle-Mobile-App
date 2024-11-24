@@ -6,7 +6,7 @@ export default function HomeLayout() {
     <Stack>
       <Stack.Screen
         name="index"
-        options={{ title: 'Jogos', headerShown: true }}
+        options={{ title: 'Jogos', headerShown: false }}
       />
       <Stack.Screen
         name="game1"
