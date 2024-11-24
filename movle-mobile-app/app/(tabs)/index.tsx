@@ -11,7 +11,7 @@ export default function HomeScreen() {
 
       <TouchableOpacity
         style={styles.card}
-        onPress={() => router.push('/home/index')}
+        onPress={() => router.push('/home')}
       >
         <Text style={styles.cardTitle}>Jogar</Text>
         <Text style={styles.cardDescription}>Clique para explorar jogos!</Text>

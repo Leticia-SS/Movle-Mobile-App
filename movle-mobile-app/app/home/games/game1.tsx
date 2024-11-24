@@ -9,6 +9,10 @@ export default function Game1() {
   );
 }
 
+export const options = {
+  headerShown: false,
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
