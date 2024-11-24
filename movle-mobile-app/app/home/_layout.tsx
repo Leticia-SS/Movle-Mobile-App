@@ -9,20 +9,20 @@ export default function HomeLayout() {
         options={{ title: 'Jogos', headerShown: false }}
       />
       <Stack.Screen
-        name="game1"
-        options={{ title: 'Jogo 1', headerShown: true }}
+        name="games/game1"
+        options={{ title: 'Jogo 1', headerShown: true, headerBackTitle: 'Voltar' }}
       />
       <Stack.Screen
-        name="game2"
-        options={{ title: 'Jogo 2', headerShown: true }}
+        name="games/game2"
+        options={{ title: 'Jogo 2', headerShown: true, headerBackTitle: 'Voltar' }}
       />
       <Stack.Screen
-        name="game3"
-        options={{ title: 'Jogo 3', headerShown: true }}
+        name="games/game3"
+        options={{ title: 'Jogo 3', headerShown: true, headerBackTitle: 'Voltar' }}
       />
       <Stack.Screen
-        name="game4"
-        options={{ title: 'Jogo 4', headerShown: true }} 
+        name="games/game4"
+        options={{ title: 'Jogo 4', headerShown: true, headerBackTitle: 'Voltar' }}
       />
     </Stack>
   );

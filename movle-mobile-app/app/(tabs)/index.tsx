@@ -11,11 +11,12 @@ export default function HomeScreen() {
 
       <TouchableOpacity
         style={styles.card}
-        onPress={() => router.push('/home')}
+        onPress={() => router.push('/home/index')}
       >
         <Text style={styles.cardTitle}>Jogar</Text>
         <Text style={styles.cardDescription}>Clique para explorar jogos!</Text>
       </TouchableOpacity>
+
     </View>
   );
 }

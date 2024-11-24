@@ -12,28 +12,28 @@ export default function GameTabs() {
       <View style={styles.cardContainer}>
         <TouchableOpacity
           style={styles.card}
-          onPress={() => router.push('/home/game1')}
+          onPress={() => router.push('/home/games/game1')}
         >
           <Text style={styles.cardTitle}>Jogo 1</Text>
           <Text style={styles.cardDescription}>Descrição do Jogo 1</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.card}
-          onPress={() => router.push('/home/game2')}
+          onPress={() => router.push('/home/games/game2')}
         >
           <Text style={styles.cardTitle}>Jogo 2</Text>
           <Text style={styles.cardDescription}>Descrição do Jogo 2</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.card}
-          onPress={() => router.push('/home/game3')}
+          onPress={() => router.push('/home/games/game3')}
         >
           <Text style={styles.cardTitle}>Jogo 3</Text>
           <Text style={styles.cardDescription}>Descrição do Jogo 3</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.card}
-          onPress={() => router.push('/home/game4')}
+          onPress={() => router.push('/home/games/game4')}
         >
           <Text style={styles.cardTitle}>Jogo 4</Text>
           <Text style={styles.cardDescription}>Descrição do Jogo 4</Text>
