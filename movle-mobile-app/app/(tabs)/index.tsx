@@ -1,15 +1,17 @@
-// HomeScreen.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
 
-export default function HomeScreen({ navigation }: { navigation: any }) {
+export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Movle App!</Text>
 
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate('/gameTabs')} 
+        onPress={() => router.push('/')}
       >
         <Text style={styles.cardTitle}>Jogar</Text>
         <Text style={styles.cardDescription}>Clique para explorar jogos!</Text>
