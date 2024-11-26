@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, StyleSheet, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, StyleSheet, Modal, ScrollView } from 'react-native';
 import useMovies from '../../../components/MovieList';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -119,61 +119,72 @@ const Game1 = () => {
       onRequestClose={() => setShowModal(false)}
     >
       <View style={styles.modalOverlay}>
-        <View style={styles.modalContent}>
-          <Text style={styles.modalTitle}>Fim de Jogo!</Text>
-          
-          <View style={styles.scoreContainer}>
-            <Text style={styles.currentScoreText}>
-              Pontuação: {score}/10
-              {'\n'}
-              {getResultMessage(score)}
-            </Text>
+        <ScrollView 
+          contentContainerStyle={styles.modalScrollContent}
+          keyboardShouldPersistTaps="handled"
+        >
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Fim de Jogo!</Text>
             
-            {lastScore && (
-              <View style={styles.comparisonContainer}>
-                <Text style={styles.lastScoreText}>
-                  Última Pontuação: {lastScore.score}/10
-                  {'\n'}
-                  {lastScore.result}
-                  {'\n'}
-                </Text>
-                
-                <Text style={styles.comparisonText}>
-                  {score > lastScore.score 
-                    ? '🎉 Você melhorou!'
-                    : score < lastScore.score 
-                    ? '😢 Continue tentando!'
-                    : '🤝 Mesmo resultado!'}
-                </Text>
-              </View>
-            )}
-          </View>
+            <View style={styles.scoreContainer}>
+              <Text style={styles.currentScoreText}>
+                Pontuação: {score}/10
+                {'\n'}
+                {getResultMessage(score)}
+              </Text>
+              
+              {lastScore && (
+                <View style={styles.comparisonContainer}>
+                  <Text style={styles.lastScoreText}>
+                    Última Pontuação: {lastScore.score}/10
+                    {'\n'}
+                    {lastScore.result}
+                    {'\n'}
+                  </Text>
+                  
+                  <Text style={styles.comparisonText}>
+                    {score > lastScore.score 
+                      ? '🎉 Você melhorou!'
+                      : score < lastScore.score 
+                      ? '😢 Continue tentando!'
+                      : '🤝 Mesmo resultado!'}
+                  </Text>
+                </View>
+              )}
+            </View>
 
-          <TouchableOpacity
-            style={styles.playAgainButton}
-            onPress={playAgain}
-          >
-            <Text style={styles.playAgainText}>Jogar Novamente</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              style={styles.playAgainButton}
+              onPress={playAgain}
+            >
+              <Text style={styles.playAgainText}>Jogar Novamente</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
       </View>
     </Modal>
   );
 
   if (loading) {
     return (
-      <View style={styles.centered}>
+      <ScrollView 
+        contentContainerStyle={styles.centered}
+        keyboardShouldPersistTaps="handled"
+      >
         <ActivityIndicator size="large" color="#8B5CF6" />
         <Text style={styles.loadingText}>Carregando perguntas...</Text>
-      </View>
+      </ScrollView>
     );
   }
 
   if (error) {
     return (
-      <View style={styles.centered}>
+      <ScrollView 
+        contentContainerStyle={styles.centered}
+        keyboardShouldPersistTaps="handled"
+      >
         <Text style={styles.errorText}>{error}</Text>
-      </View>
+      </ScrollView>
     );
   }
 
@@ -182,7 +193,11 @@ const Game1 = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView 
+      style={styles.container}
+      contentContainerStyle={styles.scrollContent}
+      keyboardShouldPersistTaps="handled"
+    >
       <View style={styles.headerContainer}>
         <Text style={styles.gameTitle}>Adivinhe pela descrição</Text>
         <Text style={styles.questionCounter}>
@@ -210,15 +225,18 @@ const Game1 = () => {
       />
 
       <ScoreModal />
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#1a1a1a',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    padding: 20,
   },
   headerContainer: {
     marginBottom: 20,
@@ -295,6 +313,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  modalScrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
   },
   modalContent: {
     backgroundColor: '#2d1f3d',

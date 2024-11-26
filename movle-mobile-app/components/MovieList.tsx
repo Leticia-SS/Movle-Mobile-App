@@ -26,7 +26,7 @@ interface GenreResponse {
 
 const API_KEY = '9d8ccd29ba63783cc0d8c389e6916a6f';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const TOTAL_PAGES_TO_FETCH = 10;
+const TOTAL_PAGES_TO_FETCH = 20;
 
 const useMovies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
