@@ -199,7 +199,7 @@ const Game1 = () => {
       keyboardShouldPersistTaps="handled"
     >
       <View style={styles.headerContainer}>
-        <Text style={styles.gameTitle}>Adivinhe pela descrição</Text>
+        <Text style={styles.gameTitle}>Adivinhe o filme pela sua descrição</Text>
         <Text style={styles.questionCounter}>
           {questionIndex + 1}/10
         </Text>
