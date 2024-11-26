@@ -1,50 +1,54 @@
-# Welcome to your Expo app 👋
+# Movle Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to the **Movle Mobile App** project! This README will guide you through the process of cloning the repository and starting the application.
 
-## Get started
+## Prerequisites
 
-1. Install dependencies
+Before you begin, ensure you have the following installed:
 
-   ```bash
-   npm install
-   ```
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (which includes `npm`)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npm install -g expo-cli`)
 
-2. Start the app
+## Getting Started
 
-   ```bash
-    npx expo start
-   ```
+Follow these steps to set up and run the project:
 
-In the output, you'll find options to open the app in a
+### 1. Clone the Repository
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Open your terminal and run the following command to clone the project:
 
 ```bash
-npm run reset-project
+git clone https://github.com/Leticia-SS/Movle-Mobile-App.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Open the Integrated Terminal and Navigate to the Project Directory
 
-## Learn more
+Open your preferred code editor (e.g., Visual Studio Code).
+Open the Integrated Terminal within your editor.
+Move to the project directory by running:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+cd movle-mobile-app
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. Install Dependencies
 
-## Join the community
+Install the required dependencies by running:
 
-Join our community of developers creating universal apps.
+```bash
+npm install
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 4. Start the Project
+
+Launch the Expo development server using:
+
+```bash
+npx expo start
+```
+
+## Adicional Info
+
+Make sure your development environment is set up for React Native. Follow the official React Native Getting Started Guide if needed.
+If you encounter any issues, please check the documentation or raise an issue on the GitHub repository.
