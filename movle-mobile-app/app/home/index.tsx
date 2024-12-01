@@ -1,49 +1,52 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function GameTabs() {
   const router = useRouter();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Escolha um Jogo!</Text>
+  <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Escolha um Jogo!</Text>
 
-      <View style={styles.cardContainer}>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => router.push('/home/games/game1')}
-        >
-          <Text style={styles.cardTitle}>Jogo 1</Text>
-          <Text style={styles.cardDescription}>Adivinhe pelo Filme</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => router.push('/home/games/game2')}
-        >
-          <Text style={styles.cardTitle}>Jogo 2</Text>
-          <Text style={styles.cardDescription}>Em Breve</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => router.push('/home/games/game3')}
-        >
-          <Text style={styles.cardTitle}>Jogo 3</Text>
-          <Text style={styles.cardDescription}>Em Breve</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => router.push('/home/games/game4')}
-        >
-          <Text style={styles.cardTitle}>Jogo 4</Text>
-          <Text style={styles.cardDescription}>Em Breve</Text>
+        <View style={styles.cardContainer}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => router.push('/home/games/game1')}
+          >
+            <Text style={styles.cardTitle}>Adivinhe!</Text>
+            <Text style={styles.cardDescription}>Adivinhe o nome do filme pela sinopse.</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => router.push('/home/games/game2')}
+          >
+            <Text style={styles.cardTitle}>Quem é o intruso?</Text>
+            <Text style={styles.cardDescription}>Selecione o único dos filmes que tem uma categoria diferente.</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => router.push('/home/games/game3')}
+          >
+            <Text style={styles.cardTitle}>Jogo 3</Text>
+            <Text style={styles.cardDescription}>Em Breve</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => router.push('/home/games/game4')}
+          >
+            <Text style={styles.cardTitle}>Jogo 4</Text>
+            <Text style={styles.cardDescription}>Em Breve</Text>
+          </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+          <Text style={styles.backButtonText}>Voltar</Text>
         </TouchableOpacity>
       </View>
-
-      <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-        <Text style={styles.backButtonText}>Voltar</Text>
-      </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
