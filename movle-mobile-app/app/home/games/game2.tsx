@@ -3,13 +3,20 @@ import { View, Text, TouchableOpacity, Image, StyleSheet, Modal, ScrollView } fr
 import useMovies from '../../../components/MovieList';
 import { LinearGradient } from 'expo-linear-gradient';
 
-interface MovieWithCategory extends Movie {
-  category: string;
+interface Movie {
+  id: number;
+  title: string;
+  overview: string;
+  release_date: string;
+  poster_path: string;
+  genre_ids: number[];
 }
 
-interface Movie {
+interface MovieWithCategory {
+  id: number;
   title: string;
   posterPath: string;
+  category: string;
 }
 
 const IntruderGame = () => {
@@ -52,15 +59,27 @@ const IntruderGame = () => {
       Math.floor(Math.random() * (movieCategories.length - 1))
     ];
 
+    const mapMovieToMovieWithCategory = (movie: Movie): MovieWithCategory => ({
+      id: movie.id,
+      title: movie.title,
+      posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      category: ''
+    });
+
     const mainCategoryMovies = movies
       .filter(movie => movie.title.toLowerCase().includes(mainCategory.toLowerCase()))
       .slice(0, 3)
-      .map(movie => ({ ...movie, category: mainCategory }));
+      .map(movie => {
+        const mappedMovie = mapMovieToMovieWithCategory(movie);
+        mappedMovie.category = mainCategory;
+        return mappedMovie;
+      });
 
-    const intrusoMovie = movies
-      .filter(movie => movie.title.toLowerCase().includes(intrusoCategory.toLowerCase()))
-      [Math.floor(Math.random() * movies.length)] as MovieWithCategory;
-    
+    const intrusoMovie = mapMovieToMovieWithCategory(
+      movies.filter(movie => 
+        movie.title.toLowerCase().includes(intrusoCategory.toLowerCase())
+      )[Math.floor(Math.random() * movies.length)]
+    );
     intrusoMovie.category = intrusoCategory;
 
     const movieSet = [...mainCategoryMovies, intrusoMovie];
@@ -72,11 +91,9 @@ const IntruderGame = () => {
 
   const handleMovieSelect = (movie: MovieWithCategory) => {
     if (movie === intruso) {
-      // Acertou o intruso
       setScore(score + 10);
       generateMovieSet();
     } else {
-      // Errou, desconta tempo
       setTimeLeft(Math.max(0, timeLeft - 8));
     }
   };
