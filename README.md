@@ -1,6 +1,6 @@
 # Movle Mobile App
 
-Welcome to the **Movle Mobile App** project! This README will guide you through the process of cloning the repository and starting the application.
+Welcome to the **Movle Mobile App** project! This README will guide you through the process of cloning the repository and starting the mobile application.
 
 ## Prerequisites
 
