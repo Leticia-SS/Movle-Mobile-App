@@ -31,7 +31,7 @@ const TOTAL_PAGES_TO_FETCH = 20;
 const useMovies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchMovies = async (): Promise<void> => {
@@ -42,8 +42,14 @@ const useMovies = () => {
 
       const responses = await Promise.all(moviePromises);
       const allMovies = responses.flatMap(response => response.data.results);
-      
-      const validMovies = allMovies.filter(movie => movie.overview.length > 100);
+
+      const validMovies = allMovies.filter(movie => 
+        movie.poster_path && 
+        movie.overview && 
+        movie.overview.length > 50 &&
+        movie.overview.length < 500
+      );
+
       setMovies(validMovies);
       setError(null);
     } catch (error) {
@@ -68,7 +74,21 @@ const useMovies = () => {
     fetchGenres();
   }, []);
 
-  return { movies, genres, loading, error };
+  const getGenreNameById = (genreIds: number[]) => {
+    if (genreIds.length > 0) {
+      const genre = genres.find(g => g.id === genreIds[0]);
+      return genre ? genre.name : 'Outros';
+    }
+    return 'Outros';
+  };
+
+  return { 
+    movies, 
+    genres, 
+    loading, 
+    error,
+    getGenreNameById 
+  };
 };
 
 export default useMovies;
