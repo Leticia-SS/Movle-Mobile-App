@@ -1,6 +1,6 @@
 {
   "name": "movle-mobile-app",
-  "main": "expo-router/entry",
+  "main": "app.js",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
